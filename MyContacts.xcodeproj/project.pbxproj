@@ -9,13 +9,43 @@
 /* Begin PBXBuildFile section */
 		CC5564C8239387E600A48D50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5564C7239387E600A48D50 /* AppDelegate.swift */; };
 		CC5564CA239387E600A48D50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5564C9239387E600A48D50 /* SceneDelegate.swift */; };
-		CC5564CC239387E600A48D50 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5564CB239387E600A48D50 /* MasterViewController.swift */; };
-		CC5564CE239387E600A48D50 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5564CD239387E600A48D50 /* DetailViewController.swift */; };
 		CC5564D1239387E600A48D50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC5564CF239387E600A48D50 /* Main.storyboard */; };
 		CC5564D3239387E800A48D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC5564D2239387E800A48D50 /* Assets.xcassets */; };
 		CC5564D6239387E800A48D50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC5564D4239387E800A48D50 /* LaunchScreen.storyboard */; };
 		CC5564E1239387E800A48D50 /* MyContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5564E0239387E800A48D50 /* MyContactsTests.swift */; };
 		CC5564EC239387E800A48D50 /* MyContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5564EB239387E800A48D50 /* MyContactsUITests.swift */; };
+		CCAABE6523938DC600620200 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE6423938DC600620200 /* ContactsListViewController.swift */; };
+		CCAABE872393929900620200 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE802393929900620200 /* Synchronizer.swift */; };
+		CCAABE882393929900620200 /* ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE822393929900620200 /* ImageResource.swift */; };
+		CCAABE892393929900620200 /* NetworkImageAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE832393929900620200 /* NetworkImageAccess.swift */; };
+		CCAABE8A2393929900620200 /* ImageAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE842393929900620200 /* ImageAccess.swift */; };
+		CCAABE8B2393929900620200 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE852393929900620200 /* SessionDelegate.swift */; };
+		CCAABE8C2393929900620200 /* URLRequest+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE862393929900620200 /* URLRequest+Convenience.swift */; };
+		CCAABE8E2393940A00620200 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE8D2393940A00620200 /* NetworkConstants.swift */; };
+		CCAABE90239396B600620200 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE8F239396B600620200 /* Contact.swift */; };
+		CCAABE92239396DC00620200 /* ContactsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE91239396DC00620200 /* ContactsListPresenter.swift */; };
+		CCAABE942393971200620200 /* ContactsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE932393971200620200 /* ContactsListInteractor.swift */; };
+		CCAABE962393972900620200 /* ContactsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE952393972900620200 /* ContactsListRouter.swift */; };
+		CCAABE992393984A00620200 /* ContactsListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE982393984A00620200 /* ContactsListProtocols.swift */; };
+		CCAABE9E2393B64000620200 /* ContactsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE9D2393B64000620200 /* ContactsListDataSource.swift */; };
+		CCAABEA02393B6FC00620200 /* ContactsListRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABE9F2393B6FC00620200 /* ContactsListRemoteDataManager.swift */; };
+		CCAABEA22393B89B00620200 /* ContactsListRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABEA12393B89B00620200 /* ContactsListRemoteDataSource.swift */; };
+		CCAABEA42393B95200620200 /* FetchContactsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABEA32393B95200620200 /* FetchContactsResource.swift */; };
+		CCAABEA62393D48B00620200 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABEA52393D48B00620200 /* ContactTableViewCell.swift */; };
+		CCAABEA82393D57200620200 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABEA72393D57200620200 /* ContactViewModel.swift */; };
+		CCAABEAA2393F09300620200 /* ContactstListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABEA92393F09300620200 /* ContactstListSectionViewModel.swift */; };
+		CCAABEAD2393FB2C00620200 /* Sequence+Grouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAABEAC2393FB2C00620200 /* Sequence+Grouping.swift */; };
+		CCC03E592397DD9D008D59D9 /* ContactDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E582397DD9D008D59D9 /* ContactDetailsRouter.swift */; };
+		CCC03E5B2397DDF7008D59D9 /* ContactDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E5A2397DDF7008D59D9 /* ContactDetailsPresenter.swift */; };
+		CCC03E5D2397DE26008D59D9 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E5C2397DE26008D59D9 /* ContactDetailsViewController.swift */; };
+		CCC03E5F2397DE56008D59D9 /* ContactDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E5E2397DE56008D59D9 /* ContactDetailsInteractor.swift */; };
+		CCC03E622397DF56008D59D9 /* ContactDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E612397DF56008D59D9 /* ContactDetailsProtocols.swift */; };
+		CCC03E642397E081008D59D9 /* ContactDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E632397E081008D59D9 /* ContactDetailsViewModel.swift */; };
+		CCC03E662397E562008D59D9 /* ContactHeaderInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E652397E562008D59D9 /* ContactHeaderInfoViewModel.swift */; };
+		CCC03E6A2398C422008D59D9 /* ContactsListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E692398C422008D59D9 /* ContactsListDataStore.swift */; };
+		CCC03E6C2398E142008D59D9 /* ContactDetailsHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E6B2398E142008D59D9 /* ContactDetailsHeaderTableViewCell.swift */; };
+		CCC03E6E2398EEB5008D59D9 /* ContactFormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E6D2398EEB4008D59D9 /* ContactFormTableViewCell.swift */; };
+		CCC03E712398F303008D59D9 /* ContactDetailsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC03E702398F303008D59D9 /* ContactDetailsDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +69,6 @@
 		CC5564C4239387E600A48D50 /* MyContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5564C7239387E600A48D50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC5564C9239387E600A48D50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CC5564CB239387E600A48D50 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		CC5564CD239387E600A48D50 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CC5564D0239387E600A48D50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC5564D2239387E800A48D50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC5564D5239387E800A48D50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +79,38 @@
 		CC5564E7239387E800A48D50 /* MyContactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyContactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC5564EB239387E800A48D50 /* MyContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContactsUITests.swift; sourceTree = "<group>"; };
 		CC5564ED239387E800A48D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCAABE6423938DC600620200 /* ContactsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
+		CCAABE802393929900620200 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
+		CCAABE822393929900620200 /* ImageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResource.swift; sourceTree = "<group>"; };
+		CCAABE832393929900620200 /* NetworkImageAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageAccess.swift; sourceTree = "<group>"; };
+		CCAABE842393929900620200 /* ImageAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAccess.swift; sourceTree = "<group>"; };
+		CCAABE852393929900620200 /* SessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
+		CCAABE862393929900620200 /* URLRequest+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Convenience.swift"; sourceTree = "<group>"; };
+		CCAABE8D2393940A00620200 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		CCAABE8F239396B600620200 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		CCAABE91239396DC00620200 /* ContactsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListPresenter.swift; sourceTree = "<group>"; };
+		CCAABE932393971200620200 /* ContactsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListInteractor.swift; sourceTree = "<group>"; };
+		CCAABE952393972900620200 /* ContactsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListRouter.swift; sourceTree = "<group>"; };
+		CCAABE982393984A00620200 /* ContactsListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListProtocols.swift; sourceTree = "<group>"; };
+		CCAABE9D2393B64000620200 /* ContactsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListDataSource.swift; sourceTree = "<group>"; };
+		CCAABE9F2393B6FC00620200 /* ContactsListRemoteDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsListRemoteDataManager.swift; sourceTree = "<group>"; };
+		CCAABEA12393B89B00620200 /* ContactsListRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListRemoteDataSource.swift; sourceTree = "<group>"; };
+		CCAABEA32393B95200620200 /* FetchContactsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContactsResource.swift; sourceTree = "<group>"; };
+		CCAABEA52393D48B00620200 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		CCAABEA72393D57200620200 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		CCAABEA92393F09300620200 /* ContactstListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactstListSectionViewModel.swift; sourceTree = "<group>"; };
+		CCAABEAC2393FB2C00620200 /* Sequence+Grouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Grouping.swift"; sourceTree = "<group>"; };
+		CCC03E582397DD9D008D59D9 /* ContactDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsRouter.swift; sourceTree = "<group>"; };
+		CCC03E5A2397DDF7008D59D9 /* ContactDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsPresenter.swift; sourceTree = "<group>"; };
+		CCC03E5C2397DE26008D59D9 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
+		CCC03E5E2397DE56008D59D9 /* ContactDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsInteractor.swift; sourceTree = "<group>"; };
+		CCC03E612397DF56008D59D9 /* ContactDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsProtocols.swift; sourceTree = "<group>"; };
+		CCC03E632397E081008D59D9 /* ContactDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewModel.swift; sourceTree = "<group>"; };
+		CCC03E652397E562008D59D9 /* ContactHeaderInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeaderInfoViewModel.swift; sourceTree = "<group>"; };
+		CCC03E692398C422008D59D9 /* ContactsListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListDataStore.swift; sourceTree = "<group>"; };
+		CCC03E6B2398E142008D59D9 /* ContactDetailsHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		CCC03E6D2398EEB4008D59D9 /* ContactFormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFormTableViewCell.swift; sourceTree = "<group>"; };
+		CCC03E702398F303008D59D9 /* ContactDetailsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +161,11 @@
 		CC5564C6239387E600A48D50 /* MyContacts */ = {
 			isa = PBXGroup;
 			children = (
+				CCAABEAB2393FB0A00620200 /* Utils */,
+				CCAABE7F2393929900620200 /* NetworkLayer */,
+				CCAABE5323938D3F00620200 /* Scenes */,
 				CC5564C7239387E600A48D50 /* AppDelegate.swift */,
 				CC5564C9239387E600A48D50 /* SceneDelegate.swift */,
-				CC5564CB239387E600A48D50 /* MasterViewController.swift */,
-				CC5564CD239387E600A48D50 /* DetailViewController.swift */,
 				CC5564CF239387E600A48D50 /* Main.storyboard */,
 				CC5564D2239387E800A48D50 /* Assets.xcassets */,
 				CC5564D4239387E800A48D50 /* LaunchScreen.storyboard */,
@@ -129,6 +190,195 @@
 				CC5564ED239387E800A48D50 /* Info.plist */,
 			);
 			path = MyContactsUITests;
+			sourceTree = "<group>";
+		};
+		CCAABE5323938D3F00620200 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE5423938D3F00620200 /* ContactsList */,
+				CCAABE5B23938D3F00620200 /* ContactDetails */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CCAABE5423938D3F00620200 /* ContactsList */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE9C2393B49D00620200 /* DataManager */,
+				CCAABE972393983200620200 /* Protocols */,
+				CCAABE5523938D3F00620200 /* Entity */,
+				CCAABE5623938D3F00620200 /* Presenter */,
+				CCAABE5723938D3F00620200 /* View */,
+				CCAABE5923938D3F00620200 /* Interactor */,
+				CCAABE5A23938D3F00620200 /* Router */,
+			);
+			path = ContactsList;
+			sourceTree = "<group>";
+		};
+		CCAABE5523938D3F00620200 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE8F239396B600620200 /* Contact.swift */,
+				CCAABEA72393D57200620200 /* ContactViewModel.swift */,
+				CCAABEA92393F09300620200 /* ContactstListSectionViewModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CCAABE5623938D3F00620200 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE91239396DC00620200 /* ContactsListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CCAABE5723938D3F00620200 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE6423938DC600620200 /* ContactsListViewController.swift */,
+				CCAABEA52393D48B00620200 /* ContactTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCAABE5923938D3F00620200 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE932393971200620200 /* ContactsListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CCAABE5A23938D3F00620200 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE952393972900620200 /* ContactsListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CCAABE5B23938D3F00620200 /* ContactDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CCC03E6F2398F2F1008D59D9 /* DataManager */,
+				CCC03E602397DF4A008D59D9 /* Protocols */,
+				CCAABE5C23938D3F00620200 /* Entity */,
+				CCAABE5D23938D3F00620200 /* Presenter */,
+				CCAABE5E23938D3F00620200 /* View */,
+				CCAABE6023938D3F00620200 /* Interactor */,
+				CCAABE6123938D3F00620200 /* Router */,
+			);
+			path = ContactDetails;
+			sourceTree = "<group>";
+		};
+		CCAABE5C23938D3F00620200 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CCC03E632397E081008D59D9 /* ContactDetailsViewModel.swift */,
+				CCC03E652397E562008D59D9 /* ContactHeaderInfoViewModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CCAABE5D23938D3F00620200 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CCC03E5A2397DDF7008D59D9 /* ContactDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CCAABE5E23938D3F00620200 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CCC03E5C2397DE26008D59D9 /* ContactDetailsViewController.swift */,
+				CCC03E6B2398E142008D59D9 /* ContactDetailsHeaderTableViewCell.swift */,
+				CCC03E6D2398EEB4008D59D9 /* ContactFormTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCAABE6023938D3F00620200 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				CCC03E5E2397DE56008D59D9 /* ContactDetailsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CCAABE6123938D3F00620200 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CCC03E582397DD9D008D59D9 /* ContactDetailsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CCAABE7F2393929900620200 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE802393929900620200 /* Synchronizer.swift */,
+				CCAABE812393929900620200 /* ImageDownload */,
+				CCAABE852393929900620200 /* SessionDelegate.swift */,
+				CCAABE862393929900620200 /* URLRequest+Convenience.swift */,
+				CCAABE8D2393940A00620200 /* NetworkConstants.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		CCAABE812393929900620200 /* ImageDownload */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE822393929900620200 /* ImageResource.swift */,
+				CCAABE832393929900620200 /* NetworkImageAccess.swift */,
+				CCAABE842393929900620200 /* ImageAccess.swift */,
+			);
+			path = ImageDownload;
+			sourceTree = "<group>";
+		};
+		CCAABE972393983200620200 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE982393984A00620200 /* ContactsListProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CCAABE9C2393B49D00620200 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABE9F2393B6FC00620200 /* ContactsListRemoteDataManager.swift */,
+				CCAABE9D2393B64000620200 /* ContactsListDataSource.swift */,
+				CCAABEA12393B89B00620200 /* ContactsListRemoteDataSource.swift */,
+				CCAABEA32393B95200620200 /* FetchContactsResource.swift */,
+				CCC03E692398C422008D59D9 /* ContactsListDataStore.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		CCAABEAB2393FB0A00620200 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CCAABEAC2393FB2C00620200 /* Sequence+Grouping.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CCC03E602397DF4A008D59D9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CCC03E612397DF56008D59D9 /* ContactDetailsProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CCC03E6F2398F2F1008D59D9 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CCC03E702398F303008D59D9 /* ContactDetailsDataStore.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +512,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCC03E6C2398E142008D59D9 /* ContactDetailsHeaderTableViewCell.swift in Sources */,
+				CCAABE90239396B600620200 /* Contact.swift in Sources */,
+				CCAABEA82393D57200620200 /* ContactViewModel.swift in Sources */,
+				CCC03E662397E562008D59D9 /* ContactHeaderInfoViewModel.swift in Sources */,
+				CCC03E5D2397DE26008D59D9 /* ContactDetailsViewController.swift in Sources */,
 				CC5564C8239387E600A48D50 /* AppDelegate.swift in Sources */,
+				CCAABE8A2393929900620200 /* ImageAccess.swift in Sources */,
+				CCAABE9E2393B64000620200 /* ContactsListDataSource.swift in Sources */,
+				CCAABE8E2393940A00620200 /* NetworkConstants.swift in Sources */,
+				CCAABE882393929900620200 /* ImageResource.swift in Sources */,
+				CCAABE8B2393929900620200 /* SessionDelegate.swift in Sources */,
+				CCC03E712398F303008D59D9 /* ContactDetailsDataStore.swift in Sources */,
+				CCAABE992393984A00620200 /* ContactsListProtocols.swift in Sources */,
+				CCAABE872393929900620200 /* Synchronizer.swift in Sources */,
+				CCC03E592397DD9D008D59D9 /* ContactDetailsRouter.swift in Sources */,
+				CCAABE962393972900620200 /* ContactsListRouter.swift in Sources */,
+				CCAABE892393929900620200 /* NetworkImageAccess.swift in Sources */,
+				CCAABEAA2393F09300620200 /* ContactstListSectionViewModel.swift in Sources */,
+				CCC03E5F2397DE56008D59D9 /* ContactDetailsInteractor.swift in Sources */,
+				CCAABE92239396DC00620200 /* ContactsListPresenter.swift in Sources */,
 				CC5564CA239387E600A48D50 /* SceneDelegate.swift in Sources */,
-				CC5564CC239387E600A48D50 /* MasterViewController.swift in Sources */,
-				CC5564CE239387E600A48D50 /* DetailViewController.swift in Sources */,
+				CCC03E642397E081008D59D9 /* ContactDetailsViewModel.swift in Sources */,
+				CCAABEA22393B89B00620200 /* ContactsListRemoteDataSource.swift in Sources */,
+				CCAABE8C2393929900620200 /* URLRequest+Convenience.swift in Sources */,
+				CCAABEAD2393FB2C00620200 /* Sequence+Grouping.swift in Sources */,
+				CCAABE942393971200620200 /* ContactsListInteractor.swift in Sources */,
+				CCAABEA42393B95200620200 /* FetchContactsResource.swift in Sources */,
+				CCC03E622397DF56008D59D9 /* ContactDetailsProtocols.swift in Sources */,
+				CCC03E6A2398C422008D59D9 /* ContactsListDataStore.swift in Sources */,
+				CCAABE6523938DC600620200 /* ContactsListViewController.swift in Sources */,
+				CCC03E6E2398EEB5008D59D9 /* ContactFormTableViewCell.swift in Sources */,
+				CCC03E5B2397DDF7008D59D9 /* ContactDetailsPresenter.swift in Sources */,
+				CCAABEA62393D48B00620200 /* ContactTableViewCell.swift in Sources */,
+				CCAABEA02393B6FC00620200 /* ContactsListRemoteDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
