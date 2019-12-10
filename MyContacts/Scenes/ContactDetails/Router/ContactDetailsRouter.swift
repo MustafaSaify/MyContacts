@@ -18,7 +18,7 @@ class ContactDetailsRouter : ContactDetailsWireFrameProtocol {
         }
         let presenter: ContactDetailsPresenterProtocol & ContactDetailsInteractorOutputProtocol = ContactDetailsPresenter()
         let interactor: ContactDetailsInteractorInputProtocol & ContactDetailsRemoteDataManagerOutputProtocol = ContactDetailsIntearctor()
-        let dataStore = ContactDetailsDataStore()
+        let dataStore = ContactDetailsDataStore(with: contact)
         let wireFrame: ContactDetailsWireFrameProtocol = ContactDetailsRouter()
         
         view.presenter = presenter
@@ -27,8 +27,8 @@ class ContactDetailsRouter : ContactDetailsWireFrameProtocol {
         presenter.interactor = interactor
         presenter.dataStore = dataStore
         presenter.imageDownloader = NetworkImageAccess()
-        dataStore.contact = contact
         interactor.presenter = presenter
+        interactor.remoteDatamanager = ContactDetailsRemoteDataManager(dataSource: ContactDetailsDataSyncer())
         
         return viewController
     }

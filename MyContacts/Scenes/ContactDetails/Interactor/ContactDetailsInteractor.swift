@@ -14,23 +14,26 @@ class ContactDetailsIntearctor : ContactDetailsInteractorInputProtocol {
     
     var remoteDatamanager: ContactDetailsRemoteDataManagerInputProtocol?
     
+    func fetchDetails(for contactId: Int) {
+        remoteDatamanager?.fetchDetails(for: contactId)
+    }
+    
     func update(contact: Contact) {
-        
+        remoteDatamanager?.post(contact: contact)
     }
 }
 
 extension ContactDetailsIntearctor : ContactDetailsRemoteDataManagerOutputProtocol {
     
-    func onUpdateContact(_ contact: Contact) {
-        presenter?.didUpdatedContact(contact)
+    func onFetchingContactDetails(contact: Contact) {
+        presenter?.didFetchedContactDetails(contact: contact)
     }
     
-    func onAddingNewContact(_ contact: Contact) {
-        presenter?.didAddedContact(contact)
+    func onPostContactSuccess() {
+        presenter?.didSubmittedContact()
     }
     
     func onError() {
         presenter?.onError()
     }
-    
 }

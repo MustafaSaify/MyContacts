@@ -37,4 +37,12 @@ class ContactsListRouter: ContactsListWireFrameProtocol {
             sourceView.navigationController?.pushViewController(contactDetailsViewController, animated: true)
          }
      }
+    
+    func routeToAddContactScreen(from view: ContactsListViewProtocol) {
+        let addContactViewController = ContactDetailsRouter.createContactDetailsModule(for: nil)
+        let navigationController = UINavigationController(rootViewController: addContactViewController)
+         if let sourceView = view as? UIViewController {
+            sourceView.present(navigationController, animated: true, completion: nil)
+         }
+     }
 }

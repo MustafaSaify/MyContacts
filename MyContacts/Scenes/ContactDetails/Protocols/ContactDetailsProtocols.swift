@@ -14,13 +14,9 @@ protocol ContactDetailsViewProtocol: class {
     
     // PRESENTER -> VIEW
     func showDetails(contactDetails: ContactDetailsViewModel)
-    
     func configureNavigationItems(leftNavigationItem: UIBarButtonItem.SystemItem?, rightNavigationItem: UIBarButtonItem.SystemItem)
-    
     func showError()
-    
     func showLoading()
-    
     func hideLoading()
 }
 
@@ -39,15 +35,17 @@ protocol ContactDetailsPresenterProtocol: class {
     
     // VIEW -> PRESENTER
     func viewDidLoad()
-    func edit()
+    func editContact()
+    func record(value: String?, for formItem: ContactDetailsViewModel.FormItem)
+    func record(avatar: UIImage)
+    func saveContact()
     func cancel()
-    func done()
 }
 
 protocol ContactDetailsInteractorOutputProtocol: class {
     // INTERACTOR -> PRESENTER
-    func didUpdatedContact(_ contact: Contact)
-    func didAddedContact(_ contact: Contact)
+    func didFetchedContactDetails(contact: Contact)
+    func didSubmittedContact()
     func onError()
 }
 
@@ -56,6 +54,7 @@ protocol ContactDetailsInteractorInputProtocol: class {
     var remoteDatamanager: ContactDetailsRemoteDataManagerInputProtocol? { get set }
     
     // PRESENTER -> INTERACTOR
+    func fetchDetails(for contactId: Int)
     func update(contact: Contact)
 }
 
@@ -67,16 +66,18 @@ protocol ContactDetailsRemoteDataManagerInputProtocol: class {
     var remoteRequestHandler: ContactDetailsRemoteDataManagerOutputProtocol? { get set }
     
     // INTERACTOR -> REMOTEDATAMANAGER
-    func retrieveContactsList()
+    func fetchDetails(for contactId: Int)
+    func post(contact: Contact)
 }
 
 protocol ContactDetailsRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> INTERACTOR
-    func onUpdateContact(_ contact: Contact)
-    func onAddingNewContact(_ contact: Contact)
+    func onFetchingContactDetails(contact: Contact)
+    func onPostContactSuccess()
     func onError()
 }
 
 protocol ContactDetailsDataStoreProtocol {
-    var contact: Contact? { get set }
+    var routedContact: Contact? { get set }
+    var displayedContactInfo: Contact { get set }
 }

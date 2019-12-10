@@ -9,5 +9,17 @@
 import Foundation
 
 class ContactDetailsDataStore: ContactDetailsDataStoreProtocol {
-    var contact: Contact?
+    var routedContact: Contact? {
+        didSet {
+            if let contact = routedContact {
+                self.displayedContactInfo = contact
+            }
+        }
+    }
+    var displayedContactInfo: Contact
+    
+    init(with contact: Contact?) {
+        self.routedContact = contact
+        self.displayedContactInfo = contact != nil ? contact! :  Contact()
+    }
 }

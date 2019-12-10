@@ -62,10 +62,16 @@
                                                                     <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lew-Z3-B2L" userLabel="Add Photo Button">
+                                                                    <rect key="frame" x="241" y="129" width="41" height="41"/>
+                                                                    <state key="normal" image="camera_button"/>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="WIK-tH-cgc" secondAttribute="bottom" constant="7" id="2H9-hX-tB7"/>
+                                                                <constraint firstItem="lew-Z3-B2L" firstAttribute="bottom" secondItem="cvz-B5-OYs" secondAttribute="bottom" id="7Yy-gv-cPV"/>
+                                                                <constraint firstItem="lew-Z3-B2L" firstAttribute="trailing" secondItem="cvz-B5-OYs" secondAttribute="trailing" id="Jgi-vb-pX4"/>
                                                                 <constraint firstItem="cvz-B5-OYs" firstAttribute="centerX" secondItem="9iA-tL-oaA" secondAttribute="centerX" id="OvM-j0-3HX"/>
                                                                 <constraint firstItem="WIK-tH-cgc" firstAttribute="centerX" secondItem="9iA-tL-oaA" secondAttribute="centerX" id="eTD-Mm-F8z"/>
                                                                 <constraint firstItem="cvz-B5-OYs" firstAttribute="top" secondItem="9iA-tL-oaA" secondAttribute="top" constant="20" id="spT-wJ-XKZ"/>
@@ -225,6 +231,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="accessoryOptionsContainer" destination="VJv-9P-Z9O" id="TfO-xO-JXP"/>
+                                            <outlet property="addPhotoButton" destination="lew-Z3-B2L" id="k4G-UV-l55"/>
                                             <outlet property="avatarImageView" destination="cvz-B5-OYs" id="kiI-EZ-1bF"/>
                                             <outlet property="favoriteImageView" destination="9Lz-eW-aws" id="MLe-T7-bVx"/>
                                             <outlet property="nameLabel" destination="WIK-tH-cgc" id="NDv-zC-O33"/>
@@ -252,6 +260,9 @@
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="DAf-SN-FqC" id="nJR-OC-KFb"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -314,13 +325,13 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="ContactsListViewController" customModule="MyContacts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactTableViewCell" rowHeight="64" id="WCw-Qf-5nD" customClass="ContactTableViewCell" customModule="MyContacts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="64"/>
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
@@ -398,6 +409,7 @@
     </scenes>
     <resources>
         <image name="call_button" width="45" height="44"/>
+        <image name="camera_button" width="41" height="41"/>
         <image name="email_button" width="45" height="44"/>
         <image name="favourite_button" width="44" height="44"/>
         <image name="home_favourite" width="19" height="18"/>

@@ -36,6 +36,7 @@ enum ContactDetailsFormItem {
 enum ContactDetailsFormMode {
     case view
     case edit
+    case add
 }
 
 class ContactDetailsViewModel {
@@ -54,18 +55,27 @@ class ContactDetailsViewModel {
     
     var headerInfo: ContactHeaderInfoViewModel!
     var formItems: [FormItem] = []
-    var mode: ContactDetailsFormMode = .view
     
-    init(with contact: Contact, mode: ContactDetailsFormMode = .view) {
-        self.headerInfo = ContactHeaderInfoViewModel(with: contact)
+    init(with contact: Contact?, mode: ContactDetailsFormMode) {
+        self.headerInfo = ContactHeaderInfoViewModel(with: contact, editable: mode != .view)
         self.formItems = formItems(for: mode, contact: contact)
     }
     
-    private func formItems(for mode: ContactDetailsFormMode, contact: Contact) -> [FormItem] {
-        //var formItems = [FormItem]()
-        let email = FormItem(type: .email, value: contact.email, editable: mode != .view)
-        let phone = FormItem(type: .phone, value: contact.phone_number, editable: mode != .view)
-        return [email, phone]
+    private func formItems(for mode: ContactDetailsFormMode, contact: Contact?) -> [FormItem] {
+        var formItems = [FormItem]()
+        if mode == .edit || mode == .add {
+            let firstName = FormItem(type: .firstName, value: contact?.first_name, editable: true)
+            formItems.append(firstName)
+            
+            let lastName = FormItem(type: .lastName, value: contact?.last_name, editable: true)
+            formItems.append(lastName)
+        }
+        let email = FormItem(type: .email, value: contact?.email, editable: mode != .view)
+        formItems.append(email)
+        
+        let phone = FormItem(type: .phone, value: contact?.phone_number, editable: mode != .view)
+        formItems.append(phone)
+        return formItems
     }
     
     func numberOfSections() -> Int {
@@ -82,5 +92,11 @@ class ContactDetailsViewModel {
         case .details:
             return formItems.count
         }
+    }
+}
+
+extension ContactDetailsViewModel.FormItem : ContactFormTableViewCellDelegate {
+    func contactFormCell(cell: ContactFormTableViewCell, didEnteredText text: String?) {
+        self.value = text
     }
 }

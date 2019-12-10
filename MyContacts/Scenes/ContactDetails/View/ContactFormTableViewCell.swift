@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ContactFormTableViewCellDelegate : class {
+    func contactFormCell(cell: ContactFormTableViewCell, didEnteredText text: String?)
+}
+
 class ContactFormTableViewCell: UITableViewCell {
     
     static var reuseIdentifier: String {
@@ -16,6 +20,8 @@ class ContactFormTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
+    
+    weak var delegate: ContactFormTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,4 +40,11 @@ class ContactFormTableViewCell: UITableViewCell {
         valueTextField.isEnabled = viewModel.isEditable
     }
 
+}
+
+extension ContactFormTableViewCell : UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.contactFormCell(cell: self, didEnteredText: textField.text)
+    }
 }

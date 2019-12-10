@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class ContactsListViewController: UITableViewController {
     
@@ -47,7 +48,7 @@ class ContactsListViewController: UITableViewController {
 
     @objc
     func insertNewObject(_ sender: Any) {
-
+        presenter?.addNewContact()
     }
 
     // MARK: - Segues
@@ -83,7 +84,7 @@ class ContactsListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contactViewModel = groupedContacts[indexPath.section].contacts[indexPath.row]
-        presenter?.showDetails(forContact: contactViewModel.id)
+        presenter?.showDetails(forContact: contactViewModel.id!)
     }
 
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -110,10 +111,10 @@ extension ContactsListViewController : ContactsListViewProtocol {
     }
     
     func showLoading() {
-        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
     }
     
     func hideLoading() {
-        
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
 }

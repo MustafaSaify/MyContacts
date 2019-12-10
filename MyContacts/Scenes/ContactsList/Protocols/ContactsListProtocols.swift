@@ -26,6 +26,7 @@ protocol ContactsListWireFrameProtocol: class {
     static func createContactListModule(with view: ContactsListViewProtocol)
     // PRESENTER -> WIREFRAME
     func routeToContactDetailsScreen(from view: ContactsListViewProtocol, for contact: Contact)
+    func routeToAddContactScreen(from view: ContactsListViewProtocol)
 }
 
 protocol ContactsListPresenterProtocol: class {
@@ -38,6 +39,7 @@ protocol ContactsListPresenterProtocol: class {
     // VIEW -> PRESENTER
     func viewDidLoad()
     func showDetails(forContact contactId: Int)
+    func addNewContact()
 }
 
 protocol ContactsListInteractorOutputProtocol: class {

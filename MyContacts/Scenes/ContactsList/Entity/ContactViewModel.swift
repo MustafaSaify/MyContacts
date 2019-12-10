@@ -10,7 +10,7 @@ import Foundation
 
 struct ContactViewModel {
     
-    var id: Int
+    var id: Int?
     var name: String
     var avatarURL: URL?
     var showFavoriteIcon: Bool

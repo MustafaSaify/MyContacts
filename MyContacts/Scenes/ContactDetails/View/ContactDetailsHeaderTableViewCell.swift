@@ -18,6 +18,8 @@ class ContactDetailsHeaderTableViewCell : UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favoriteImageView: UIImageView!
+    @IBOutlet weak var addPhotoButton: UIButton!
+    @IBOutlet weak var accessoryOptionsContainer: UIView!
     
     private var imageDownloadCancellation: (() -> ())?
     
@@ -40,6 +42,8 @@ class ContactDetailsHeaderTableViewCell : UITableViewCell {
     func configure(with viewModel: ContactHeaderInfoViewModel) {
         nameLabel.text = viewModel.name
         favoriteImageView.image = viewModel.favoriteIcon
+        addPhotoButton.isHidden = viewModel.hideAddPhotoButton
+        accessoryOptionsContainer.isHidden = viewModel.hideAccessoryOptions
         if let avatarUrl = viewModel.avatarUrl {
             imageDownloadCancellation = viewModel.imageDownloader?.imageWithURL(avatarUrl, completion: { [weak self] (image) in
                 self?.avatarImageView.image = image ?? UIImage(named: "placeholder_photo")

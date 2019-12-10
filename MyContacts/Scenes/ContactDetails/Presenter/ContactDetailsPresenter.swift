@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ContactDetailsPresenter : ContactDetailsPresenterProtocol {
     
@@ -17,11 +18,11 @@ class ContactDetailsPresenter : ContactDetailsPresenterProtocol {
     var imageDownloader: ImageAccess?
        
     func viewDidLoad() {
-        //interactor?.retrieveContactsList()
-        let viewModel = ContactDetailsViewModel(with: dataStore!.contact!)
+        let viewModel = ContactDetailsViewModel(with: dataStore?.displayedContactInfo, mode: dataStore?.routedContact != nil ? .view : .add)
         view?.showDetails(contactDetails: viewModel)
         
-        if let _ = dataStore?.contact {
+        if let contact = dataStore?.routedContact, let id = contact.id {
+            interactor?.fetchDetails(for: id)
             view?.configureNavigationItems(leftNavigationItem: nil, rightNavigationItem: .edit)
         }
         else {
@@ -29,31 +30,57 @@ class ContactDetailsPresenter : ContactDetailsPresenterProtocol {
         }
     }
     
-    func edit() {
-        
+    func editContact() {
+        let viewModel = ContactDetailsViewModel(with: dataStore!.displayedContactInfo, mode: .edit)
+        view?.showDetails(contactDetails: viewModel)
+        view?.configureNavigationItems(leftNavigationItem: .cancel, rightNavigationItem: .done)
     }
     
     func cancel() {
+        let viewModel = ContactDetailsViewModel(with: dataStore?.routedContact, mode: .view)
+        view?.showDetails(contactDetails: viewModel)
+        view?.configureNavigationItems(leftNavigationItem: nil, rightNavigationItem: .edit)
+    }
+    
+    func record(value: String?, for formItem: ContactDetailsViewModel.FormItem) {
+        switch formItem.type {
+        case .firstName:
+            self.dataStore?.displayedContactInfo.first_name = value ?? ""
+        case .lastName:
+            self.dataStore?.displayedContactInfo.last_name = value ?? ""
+        case .email:
+            self.dataStore?.displayedContactInfo.email = value
+        case .phone:
+            self.dataStore?.displayedContactInfo.phone_number = value
+        default:
+            break
+        }
+    }
+    
+    func record(avatar: UIImage) {
         
     }
     
-    func done() {
-        
+    func saveContact() {
+        view?.showLoading()
+        interactor?.update(contact: dataStore!.displayedContactInfo)
     }
 }
 
 extension ContactDetailsPresenter : ContactDetailsInteractorOutputProtocol {
     
-    func didUpdatedContact(_ contact: Contact) {
-        
+    func didFetchedContactDetails(contact: Contact) {
+        self.dataStore?.routedContact = contact
+        let viewModel = ContactDetailsViewModel(with: contact, mode: .view)
+        view?.showDetails(contactDetails: viewModel)
     }
     
-    func didAddedContact(_ contact: Contact) {
-        
+    func didSubmittedContact() {
+        view?.hideLoading()
     }
     
     func onError() {
-        
+        view?.showError()
     }
     
 }

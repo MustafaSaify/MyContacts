@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Contact : Decodable {
-    var id: Int
-    var first_name: String
-    var last_name: String
-    var favorite: Bool
+struct Contact : Codable {
+    var id: Int?
+    var first_name: String = ""
+    var last_name: String = ""
+    var favorite: Bool = false
     var profile_pic: String?
     var email: String?
     var phone_number: String?
