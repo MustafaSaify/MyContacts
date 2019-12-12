@@ -18,6 +18,7 @@ class ContactDetailsRouter : ContactDetailsWireFrameProtocol {
         }
         let presenter: ContactDetailsPresenterProtocol & ContactDetailsInteractorOutputProtocol = ContactDetailsPresenter()
         let interactor: ContactDetailsInteractorInputProtocol & ContactDetailsRemoteDataManagerOutputProtocol = ContactDetailsIntearctor()
+        let remoteDataManager = ContactDetailsRemoteDataManager(dataSource: ContactDetailsDataSyncer())
         let dataStore = ContactDetailsDataStore(with: contact)
         let wireFrame: ContactDetailsWireFrameProtocol = ContactDetailsRouter()
         
@@ -28,13 +29,23 @@ class ContactDetailsRouter : ContactDetailsWireFrameProtocol {
         presenter.dataStore = dataStore
         presenter.imageDownloader = NetworkImageAccess()
         interactor.presenter = presenter
-        interactor.remoteDatamanager = ContactDetailsRemoteDataManager(dataSource: ContactDetailsDataSyncer())
+        interactor.remoteDatamanager = remoteDataManager
+        remoteDataManager.remoteRequestHandler = interactor
+        dataStore.mode = contact != nil ? .view : .add
         
         return viewController
     }
     
-    func presentEditContactsDetailScreen(from view: ContactDetailsViewProtocol, forContact contact: Contact) {
-        
+    func routeToParent(from view: ContactDetailsViewProtocol) {
+        guard let viewController = view as? UIViewController else {
+            return
+        }
+        if let _ = viewController.presentingViewController {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+        else {
+            viewController.navigationController?.popViewController(animated: true)
+        }
     }
     
     static var mainStoryboard: UIStoryboard {

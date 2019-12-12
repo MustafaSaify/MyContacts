@@ -32,11 +32,18 @@ class ContactsListRouter: ContactsListWireFrameProtocol {
     
     func routeToContactDetailsScreen(from view: ContactsListViewProtocol, for contact: Contact) {
         let contactDetailsViewController = ContactDetailsRouter.createContactDetailsModule(for: contact)
-    
-         if let sourceView = view as? UIViewController {
-            sourceView.navigationController?.pushViewController(contactDetailsViewController, animated: true)
-         }
+        (contactDetailsViewController as? ContactDetailsViewProtocol)?.presenter?.dataPassing = view.presenter as? ContactDetailsDataPassingProtocol
+        if let sourceViewController = view as? UIViewController {
+            if let splitViewController = sourceViewController.splitViewController {
+                let navigationController = UINavigationController(rootViewController: contactDetailsViewController)
+                splitViewController.showDetailViewController(navigationController, sender: nil)
+            }
+            else {
+                sourceViewController.navigationController?.pushViewController(contactDetailsViewController, animated: true)
+            }
+        }
      }
+    
     
     func routeToAddContactScreen(from view: ContactsListViewProtocol) {
         let addContactViewController = ContactDetailsRouter.createContactDetailsModule(for: nil)

@@ -13,7 +13,6 @@ class ContactsListViewController: UITableViewController {
     
     var presenter: ContactsListPresenterProtocol?
     
-    var detailViewController: ContactDetailsViewController? = nil
     var groupedContacts = [ContactsListSectionViewModel]()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -33,11 +32,8 @@ class ContactsListViewController: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? ContactDetailsViewController
-        }
         
+        addPullToRefresh()
         presenter?.viewDidLoad()
     }
 
@@ -50,19 +46,15 @@ class ContactsListViewController: UITableViewController {
     func insertNewObject(_ sender: Any) {
         presenter?.addNewContact()
     }
-
-    // MARK: - Segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                //let object = contacts[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! ContactDetailsViewController
-                //controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                detailViewController = controller
-            }
-        }
+    
+    private func addPullToRefresh() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refetchAndReload), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func refetchAndReload() {
+        presenter?.fetchContacts()
     }
 
     // MARK: - Table View
@@ -101,6 +93,9 @@ extension ContactsListViewController : ContactsListViewProtocol {
     func showContacts(with sections: [ContactsListSectionViewModel]) {
         self.groupedContacts = sections
         tableView.reloadData()
+        if tableView.refreshControl?.isRefreshing == true {
+            tableView.refreshControl?.endRefreshing()
+        }
     }
     
     func showError() {

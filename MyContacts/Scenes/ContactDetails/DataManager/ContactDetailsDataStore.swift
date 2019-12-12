@@ -8,14 +8,17 @@
 
 import Foundation
 
+enum ContactDetailsSceneMode {
+    case add
+    case view
+}
+
 class ContactDetailsDataStore: ContactDetailsDataStoreProtocol {
-    var routedContact: Contact? {
-        didSet {
-            if let contact = routedContact {
-                self.displayedContactInfo = contact
-            }
-        }
-    }
+    
+    var mode: ContactDetailsSceneMode = .add
+    
+    var routedContact: Contact?
+        
     var displayedContactInfo: Contact
     
     init(with contact: Contact?) {

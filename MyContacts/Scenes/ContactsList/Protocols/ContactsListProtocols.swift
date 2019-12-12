@@ -38,6 +38,8 @@ protocol ContactsListPresenterProtocol: class {
     
     // VIEW -> PRESENTER
     func viewDidLoad()
+    func viewWillAppear()
+    func fetchContacts()
     func showDetails(forContact contactId: Int)
     func addNewContact()
 }

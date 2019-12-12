@@ -17,7 +17,7 @@ extension FetchContactDetailsResource : Resource {
     
     func request() -> URLRequest {
         var req =  URLRequest(baseURL: baseURL,
-                              path: "contacts/\(contactId)",
+                              path: "contacts/\(contactId).json",
                               parameters: nil)!
         req.httpMethod = "GET"
         return req

@@ -43,7 +43,8 @@ extension PostContactResource : Resource {
     
     private func endpoint() -> String {
         let path = "contacts"
-        return isUpdatingExistingContact ? "\(path)/\(contact.id!)" : path
+        let endpoint = isUpdatingExistingContact ? "\(path)/\(contact.id!)" : path
+        return endpoint + ".json"
     }
     
     private func httpMethod() -> String {

@@ -17,7 +17,10 @@ class ContactsListPresenter : ContactsListPresenterProtocol {
     
     func viewDidLoad() {
         view?.showLoading()
-        interactor?.retrieveContactsList()
+        fetchContacts()
+    }
+    
+    func viewWillAppear() {
     }
     
     func showDetails(forContact contactId: Int) {
@@ -29,6 +32,10 @@ class ContactsListPresenter : ContactsListPresenterProtocol {
     
     func addNewContact() {
         wireFrame?.routeToAddContactScreen(from: view!)
+    }
+    
+    func fetchContacts() {
+        interactor?.retrieveContactsList()
     }
 }
 
@@ -59,5 +66,17 @@ extension ContactsListPresenter {
     
     func contactViewModel(from contact: Contact) -> ContactViewModel {
         return ContactViewModel(with: contact, imageDownloader: imageDownloader)
+    }
+}
+
+extension ContactsListPresenter : ContactDetailsDataPassingProtocol {
+    func didAddedNewContact() {
+        view?.showLoading()
+        fetchContacts()
+    }
+    
+    func didUpdatedContact(contact: Contact?) {
+        view?.showLoading()
+        fetchContacts()
     }
 }

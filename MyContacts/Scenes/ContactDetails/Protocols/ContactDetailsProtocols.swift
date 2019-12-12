@@ -23,7 +23,8 @@ protocol ContactDetailsViewProtocol: class {
 protocol ContactDetailsWireFrameProtocol: class {
     static func createContactDetailsModule(for contact: Contact?) -> UIViewController
     // PRESENTER -> WIREFRAME
-    func presentEditContactsDetailScreen(from view: ContactDetailsViewProtocol, forContact contact: Contact)
+    func openImagePicker(source: Any)
+    func routeToParent(from view: ContactDetailsViewProtocol)
 }
 
 protocol ContactDetailsPresenterProtocol: class {
@@ -32,12 +33,15 @@ protocol ContactDetailsPresenterProtocol: class {
     var dataStore: ContactDetailsDataStoreProtocol? { get set }
     var wireFrame: ContactDetailsWireFrameProtocol? { get set }
     var imageDownloader: ImageAccess? { get set }
+    var dataPassing: ContactDetailsDataPassingProtocol? { get set }
     
     // VIEW -> PRESENTER
     func viewDidLoad()
     func editContact()
     func record(value: String?, for formItem: ContactDetailsViewModel.FormItem)
+    func presentImagePicker()
     func record(avatar: UIImage)
+    func markAsFavourite()
     func saveContact()
     func cancel()
 }
@@ -78,6 +82,12 @@ protocol ContactDetailsRemoteDataManagerOutputProtocol: class {
 }
 
 protocol ContactDetailsDataStoreProtocol {
+    var mode: ContactDetailsSceneMode { get set }
     var routedContact: Contact? { get set }
     var displayedContactInfo: Contact { get set }
+}
+
+protocol ContactDetailsDataPassingProtocol {
+    func didAddedNewContact()
+    func didUpdatedContact(contact: Contact?)
 }

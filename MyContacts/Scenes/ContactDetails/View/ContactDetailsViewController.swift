@@ -22,6 +22,25 @@ class ContactDetailsViewController: UIViewController {
         presenter?.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(ContactDetailsViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ContactDetailsViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @IBAction func favoriteButtonAction(sender: Any?) {
+        presenter?.markAsFavourite()
+    }
+    
+    @IBAction func selectAvatarAction(sender: Any?) {
+        presenter?.markAsFavourite()
+    }
+    
     private func editBarButtonItem() -> UIBarButtonItem {
         return UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonAction(sender:)))
     }
@@ -46,6 +65,18 @@ class ContactDetailsViewController: UIViewController {
     
     @objc private func cancelButtonAction(sender: UIBarButtonItem) {
         presenter?.cancel()
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+            print("Notification: Keyboard will show")
+            tableView.setBottomInset(to: keyboardHeight)
+        }
+    }
+
+    @objc func keyboardWillHide(notification: Notification) {
+        print("Notification: Keyboard will hide")
+        tableView.setBottomInset(to: 0.0)
     }
 }
 
